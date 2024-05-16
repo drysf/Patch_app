@@ -1,8 +1,7 @@
 from app import app
 from flask import render_template, request
 from .ShellCommand import ShellComands
-
-
+from app.RundeckClass import Rundeck
 
 
 #PROCESS 
@@ -24,6 +23,8 @@ def process():
             shell.AddImages(exportFile=exportFile , resultFile=f"result_{nom_dossier}_{dateToday}", inputFile=nom_dossier+"_nrm", outputFile=f"{nom_dossier}_patch_{dateToday}")
             
             shell.SendImagesInServer(inputFile=f"{nom_dossier}_patch_{dateToday}")
+            
+            Rundeck.EnvoiRundeck(patchName=f"{nom_dossier}_patch_{dateToday}", resultFile=f"result_{nom_dossier}_{dateToday}")
         return render_template("process.html", nom_dossier=nom_dossier, exportFile=exportFile)
 
 
@@ -75,6 +76,10 @@ def Downloader():
     return render_template('Downloader.html')
 
 
+
+@app.route('/Cherche_les_images', methods=['GET', 'POST'])
+def Cherche_les_images():
+    return render_template('chercherDesImages.html')
 
 
 
