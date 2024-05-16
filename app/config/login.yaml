@@ -1,0 +1,23 @@
+- service: trello
+  username: drys.ferhi@spacefoot.com
+  password: Caramel78
+
+- service: fast-track
+  username: votre_identifiant_fast_track
+  password: votre_mot_de_passe_fast_track
+
+- service: downloader
+  username: votre_identifiant_downloader
+  password: votre_mot_de_passe_downloader
+
+- service: url-images
+  username: votre_identifiant_url_images
+  password: votre_mot_de_passe_url_images
+
+- service: magmi-scraper
+  username: votre_identifiant_magmi_scraper
+  password: votre_mot_de_passe_magmi_scraper
+
+- service: wms
+  username: votre_identifiant_wms
+  password: votre_mot_de_passe_wms

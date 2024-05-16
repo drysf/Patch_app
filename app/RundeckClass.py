@@ -68,4 +68,3 @@ class Rundeck():
         time.sleep(10)
         driver.quit()
 
-Rundeck.EnvoiRundeck(patchName="salut", resultFile="export_464.csv")
