@@ -24,7 +24,7 @@ class TrelloScraper(Scraping):
         
         btnValider = wait.until(EC.presence_of_element_located((By.ID, "login-submit")))
         btnValider.click()
-        time.sleep(1)
+        time.sleep(6)
         
         
         inputPassword = wait.until(EC.presence_of_element_located((By.ID, "password")))
@@ -32,10 +32,27 @@ class TrelloScraper(Scraping):
         
         btnValider = wait.until(EC.presence_of_element_located((By.ID, "login-submit")))
         btnValider.click()
-        
-        
-        time.sleep(3000)
-        self.driver.quit()
-        
-scraper = TrelloScraper("nike")
-scraper.ScrapingTrello()
+        time.sleep(10)
+          # Récupérer le contenu HTML de la page actuelle
+        html_content = self.driver.page_source
+
+        # Utiliser BeautifulSoup pour analyser le contenu HTML
+        soup = BeautifulSoup(html_content, 'html.parser')
+
+        # Votre expression régulière pour rechercher une chaîne de caractères
+        regex_pattern = rf'{re.escape("Reima")}'
+
+        # Rechercher la chaîne de caractères en utilisant l'expression régulière
+        matches = soup.find_all(text=re.compile(regex_pattern))
+
+        time.sleep(5)
+        # Si des correspondances sont trouvées, les afficher
+        if matches:
+            for match in matches:
+                if "Images" in match:
+                    return True
+            # Si aucun match contenant "Images" n'est trouvé dans toutes les correspondances
+            return False
+        else:
+            # Si aucune correspondance n'a été trouvée du tout
+            return False
