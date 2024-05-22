@@ -1,27 +1,42 @@
 
 {% include 'header.html' %}
+<div class="flex-grow">
+  <div class="mx-80 px-96 mt-80" >
+    <label for="nom_dossier" class="block text-sm font-medium leading-6 text-gray-900">Nom du dossier d'images</label>
+    <div class="relative mt-2 rounded-md shadow-sm">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+      </div>
+      <form method="POST" class="space-y-3">
+            <input type="text" name="nom_dossier" id="nom_dossier" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300">
+            <label for="nom_export" class="block text-sm font-medium leading-6 text-gray-900">Nom de l'export</label>
+            <input type="text" name="nom_export" id="nom_export" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300">
 
-<div class="mx-80 px-96 mt-80" >
-  <label for="nom_dossier" class="block text-sm font-medium leading-6 text-gray-900">nom du dossier d'Images</label>
-  <div class="relative mt-2 rounded-md shadow-sm">
-    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-    </div>
-    <form method="POST">
-          <input type="text" name="nom_dossier" id="nom_dossier" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300">
-          <label for="nom_export" class="block text-sm font-medium leading-6 text-gray-900">nom de l'export</label>
-          <input type="text" name="nom_export" id="nom_export" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300">
+            <button type="submit" name="valider" class="bg-indigo-500 text-white text-sm rounded-md px-6 py-2">Valider</button>
 
-          <input type="submit" name="valider" value="valider">
-
-    </form>
-    <div class="absolute inset-y-0 right-0 flex items-center">
+      </form>
+      <div class="absolute inset-y-0 right-0 flex items-center">
+      </div>
     </div>
   </div>
-</div>
     {% if nom_dossier %}
-        <div class="mx-auto w-1/4"><p>nom du dossier choisi "{{ nom_dossier }}"</p></div>
+        <div class="mx-auto w-1/4"><p>Nom du dossier "{{ nom_dossier }}"</p></div>
     {% endif %}
+</div>
+    {% include 'footer.html' %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll("nav a");
 
+    navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            // Supprime la classe active de tous les liens
+            navLinks.forEach(link => link.classList.remove("active-nav"));
 
+            // Ajoute la classe active au lien cliqué
+            this.classList.add("active-nav");
+        });
+    });
+    });
+  </script>
 </body>
 </html>

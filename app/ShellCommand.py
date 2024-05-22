@@ -12,10 +12,9 @@ class ShellComands:
     def getCommand(self, command):
         return subprocess.run(command, shell=True)
     
-    #, stdout=subprocess.PIPE, stderr=subprocess.PIPE
     def Normalization(self,inputFile):
         
-        command = f"cd /home/celia/Public/imports-magmi/; php console.php normalize-images data/{inputFile} data/{inputFile}_nrm"  
+        command = f"cd /home/drys/Public/imports-magmi/; php console.php normalize-images data/{inputFile} data/{inputFile}_nrm"  
 
         self.getCommand(command)
         
