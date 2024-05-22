@@ -8,6 +8,7 @@ from app.routes.addImages import AddImages
 from app.routes.extract import Extract
 from app.routes.downloader import Downloader
 from app.routes.cherchesImages import Cherche_les_images
+from app.routes.upscale import upscale
 
 
 #PROCESS 
