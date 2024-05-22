@@ -18,8 +18,7 @@ class Scraping:
     def __init__(self, nameBrand) -> None:
         self.nameBrand = nameBrand  
         self.chrome_options = Options()
-        # self.chrome_options.add_argument("--headless=new")
-        self.chrome_options.add_argument("--window-size=1920,1080")
+        self.chrome_options.add_argument("--headless=new")
         self.chrome_options.binary_location = '/home/drys/Documents/chrome-linux64/chrome'
         self.driver = webdriver.Chrome(options=self.chrome_options)   
 

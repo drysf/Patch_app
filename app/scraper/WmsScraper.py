@@ -31,7 +31,7 @@ class WmsScraper(Scraping):
         inputValid.click()
 
         searchBar = wait.until(EC.presence_of_element_located((By.ID, "searchbar")))
-        searchBar.send_keys("nike")
+        searchBar.send_keys(self.nameBrand)
 
         validSearchBar = wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div[3]/div/div[1]/div/div/div/div/form/div/input[2]")))
         validSearchBar.click()
@@ -59,6 +59,4 @@ class WmsScraper(Scraping):
         else:
             return False
 
-# Example usage
-nike_scraper = WmsScraper("nike")
-print(nike_scraper.WmsScraper())
+

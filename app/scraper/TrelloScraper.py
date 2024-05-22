@@ -36,11 +36,8 @@ class TrelloScraper(Scraping):
           # Récupérer le contenu HTML de la page actuelle
         html_content = self.driver.page_source
 
-        # Utiliser BeautifulSoup pour analyser le contenu HTML
         soup = BeautifulSoup(html_content, 'html.parser')
-
-        # Votre expression régulière pour rechercher une chaîne de caractères
-        regex_pattern = rf'{re.escape("Reima")}'
+        regex_pattern = rf'{re.escape(self.nameBrand)}'
 
         # Rechercher la chaîne de caractères en utilisant l'expression régulière
         matches = soup.find_all(text=re.compile(regex_pattern))

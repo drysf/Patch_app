@@ -7,13 +7,10 @@ class DownloaderScraper(Scraping):
             data = yaml.safe_load(file)
         
         for brand in data['downloader']:
-            if "click" == brand:
+            if self.nameBrand == brand:
                 return True
         
         return False  # Return False only after all brands have been checked
 
-# Create an instance of DownloaderScraper with "nike"
-nike = DownloaderScraper("nike")
 
-# Call the scrapingDownloader method and print the result
-print(nike.scrapingDownloader())
+

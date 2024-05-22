@@ -16,7 +16,7 @@ class UrlImagesScraper(Scraping):
         soup = BeautifulSoup(html_content, 'html.parser')
 
         # Votre expression régulière pour rechercher une chaîne de caractères
-        regex_pattern = rf'{re.escape("ta grand mere la grosse pute pk ca fonctionne pas")}'
+        regex_pattern = rf'{re.escape(self.nameBrand)}'
 
         # Rechercher la chaîne de caractères en utilisant l'expression régulière
         matches = soup.find_all(text=re.compile(regex_pattern))
@@ -30,8 +30,3 @@ class UrlImagesScraper(Scraping):
             return False
         
         
-        time.sleep(200)
-        
-nike = UrlImagesScraper("nike")
-
-print(nike.ScrapingUrlImages())
