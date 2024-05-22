@@ -1,12 +1,10 @@
-from ScraperImages import *
+from app.scraper.ScraperImages import *
 
-class UrlImagesScraper(Scraping):
+class FastTrackScraper(Scraping):
     
     
-    def ScrapingUrlImages(self):
-        
-        url = "https://docs.google.com/spreadsheets/d/11Gn-Y6geGNTWNynZzqiDjHkvp7_b6LwtZ6njVCW0qnI/edit#gid=0"
-    
+    def ScrapingFastTrack(self):
+        url = "https://drive.google.com/drive/folders/1IEC1DSFn_HlZqSlP-CwP2R6FjjP_yeVK"
         self.driver.get(url)
         
         
@@ -16,7 +14,7 @@ class UrlImagesScraper(Scraping):
         soup = BeautifulSoup(html_content, 'html.parser')
 
         # Votre expression régulière pour rechercher une chaîne de caractères
-        regex_pattern = rf'{re.escape("ta grand mere la grosse pute pk ca fonctionne pas")}'
+        regex_pattern = rf'{re.escape("ADEVA")}'
 
         # Rechercher la chaîne de caractères en utilisant l'expression régulière
         matches = soup.find_all(text=re.compile(regex_pattern))
@@ -29,9 +27,6 @@ class UrlImagesScraper(Scraping):
             # Si aucune correspondance n'a été trouvée du tout
             return False
         
-        
-        time.sleep(200)
-        
-nike = UrlImagesScraper("nike")
-
-print(nike.ScrapingUrlImages())
+nike = FastTrackScraper("nike")
+print(nike.ScrapingFastTrack())
+    

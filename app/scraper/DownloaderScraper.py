@@ -1,4 +1,4 @@
-from ScraperImages import *
+from app.scraper.ScraperImages import *
 
 class DownloaderScraper(Scraping):
     
